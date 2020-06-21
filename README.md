@@ -10,6 +10,10 @@ This repo consists of illustrative code for the techniques introduced in the C++
 
 Distinguish between () and {} when creating objects.
 
+### Item8
+
+Prefer `nullptr` to `0` and `NULL`.
+
 ### Item9
 
 Prefer alias declarations to typedefs.
@@ -30,9 +34,8 @@ Declare overriding functions override.
 
 ## Up next
 
-1. Item 8: Prefer `nullptr` to `0` and `NULL`.
-2. Item 13: Prefer `const_iterator` to `iterator`.
-3. Item 14: Declare functions `noexcept` if they won’t emit exceptions.
-4. Item 15: Use `constexpr` whenever possible.
-5. Item 16: Make const member functions thread safe.
-6. Item 17: Understand special member function generation.
+1. Item 13: Prefer `const_iterator` to `iterator`.
+2. Item 14: Declare functions `noexcept` if they won’t emit exceptions.
+3. Item 15: Use `constexpr` whenever possible.
+4. Item 16: Make const member functions thread safe.
+5. Item 17: Understand special member function generation.
