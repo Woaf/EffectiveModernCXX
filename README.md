@@ -30,12 +30,15 @@ Prefer deleted functions to private undefined ones.
 
 Declare overriding functions override.
 
+### Item 13
+
+Prefer `const_iterator` to `iterator`.
+
 ***
 
 ## Up next
 
-1. Item 13: Prefer `const_iterator` to `iterator`.
-2. Item 14: Declare functions `noexcept` if they won’t emit exceptions.
-3. Item 15: Use `constexpr` whenever possible.
-4. Item 16: Make const member functions thread safe.
-5. Item 17: Understand special member function generation.
+1. Item 14: Declare functions `noexcept` if they won’t emit exceptions.
+2. Item 15: Use `constexpr` whenever possible.
+3. Item 16: Make const member functions thread safe.
+4. Item 17: Understand special member function generation.
