@@ -42,6 +42,14 @@ Declare functions `noexcept` if they won’t emit exceptions.
 
 Use `constexpr` whenever possible.
 
+### Item 16
+
+Sepcial member function generation
+
+![Generated member functions][gmf]
+
+[gmf]: gmf.jpg
+
 ***
 
 ## Up next
