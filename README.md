@@ -42,7 +42,7 @@ Declare functions `noexcept` if they won’t emit exceptions.
 
 Use `constexpr` whenever possible.
 
-### Item 16
+### Item 17
 
 Sepcial member function generation
 
@@ -55,5 +55,5 @@ Sepcial member function generation
 ## Up next
 
 1. Item 16: Make const member functions thread safe.
-2. Item 17: Understand special member function generation.
+2. Item 17 needs explanation!
 3. Item 14 needs more examples!
