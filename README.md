@@ -44,7 +44,7 @@ Use `constexpr` whenever possible.
 
 ### Item 17
 
-Sepcial member function generation
+Special member function generation
 
 ![Generated member functions][gmf]
 
