@@ -38,11 +38,14 @@ Prefer `const_iterator` to `iterator`.
 
 Declare functions `noexcept` if they won’t emit exceptions.
 
+### Item 15
+
+Declare functions `noexcept` if they won’t emit exceptions.
+
 ***
 
 ## Up next
 
-1. Item 15: Use `constexpr` whenever possible.
-2. Item 16: Make const member functions thread safe.
-3. Item 17: Understand special member function generation.
-1. Item 14 needs more examples!
+1. Item 16: Make const member functions thread safe.
+2. Item 17: Understand special member function generation.
+3. Item 14 needs more examples!
