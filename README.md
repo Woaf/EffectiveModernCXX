@@ -34,11 +34,15 @@ Declare overriding functions override.
 
 Prefer `const_iterator` to `iterator`.
 
+### Item 14
+
+Declare functions `noexcept` if they won’t emit exceptions.
+
 ***
 
 ## Up next
 
-1. Item 14: Declare functions `noexcept` if they won’t emit exceptions.
-2. Item 15: Use `constexpr` whenever possible.
-3. Item 16: Make const member functions thread safe.
-4. Item 17: Understand special member function generation.
+1. Item 15: Use `constexpr` whenever possible.
+2. Item 16: Make const member functions thread safe.
+3. Item 17: Understand special member function generation.
+1. Item 14 needs more examples!
