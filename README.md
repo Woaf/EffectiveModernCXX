@@ -55,5 +55,4 @@ Special member function generation
 ## Up next
 
 1. Item 16: Make const member functions thread safe.
-2. Item 17 needs explanation!
-3. Item 14 needs more examples!
+2. Item 14 needs more examples!
