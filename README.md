@@ -40,7 +40,7 @@ Declare functions `noexcept` if they won’t emit exceptions.
 
 ### Item 15
 
-Item 15: Use `constexpr` whenever possible.
+Use `constexpr` whenever possible.
 
 ***
 
