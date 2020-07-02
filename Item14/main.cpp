@@ -17,15 +17,25 @@
 
 // It also compilers to generate better object code.
 
-int f () throw ();  // c++98 way of saying "i don't throw any exceptions"
-int f () noexcept;  // c++11 --||--
+int f () throw () {return 4;}  // c++98 way of saying "i don't throw any exceptions"
+int f () noexcept {return 5;}  // c++11 --||--
 
 // if an exception escapes functions 'f', then the specification 
 // is violated.
 // c++98: if an exception is thrown: unwinds the call stack before termination
 // c++11: POSSIBLY unwinds the call stack before termination
-// apparently, this is a huge difference for code generation
 
+// noexcept optimalization: 
+// when declaring the exception specification of a function to be noexcept
+// the compiler can make optimalizations on the generated code. 'noexcept'
+// ensures the following:  "In a noexcept function, optimizers do not need to keep 
+// the runtime stack in an unwindable state if an exception would propagate out of 
+// the function, nor must they ensure that objects in a noexcept function are 
+// destroyed in the inverse order of construction should an exception 
+// leave the function.
+
+// this optimalization is not possible in c++98 throw (), and in any other
+// functions that are not declared 'noexcept'
 
 int main () 
 {
