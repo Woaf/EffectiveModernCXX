@@ -42,6 +42,10 @@ Declare functions `noexcept` if they won’t emit exceptions.
 
 Use `constexpr` whenever possible.
 
+### Item 16
+
+Make const member functions thread safe.
+
 ### Item 17
 
 Special member function generation
@@ -54,5 +58,5 @@ Special member function generation
 
 ## Up next
 
-1. Item 16: Make const member functions thread safe.
+1. Item 16 needs extension
 2. Item 14 needs more examples!
