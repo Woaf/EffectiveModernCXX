@@ -53,6 +53,8 @@ int main ()
 
 	C c { true };		// init list ctor ! 
 	C c2 (true);		// param ctor
+	
+	// int x {5.4}; 	// error! no implicit conversion allowed!
 
 	return 0;
 }
