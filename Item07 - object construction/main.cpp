@@ -55,6 +55,9 @@ int main ()
 	C c2 (true);		// param ctor
 	
 	// int x {5.4}; 	// error! no implicit conversion allowed!
+    int someInt = 5;
+    int* const pSomeInt {&someInt};
+    std::cout << pSomeInt << std::endl;
 
 	return 0;
 }
