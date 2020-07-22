@@ -19,7 +19,7 @@
 // constexpr values can be used in contexts where
 // c++ expects a const expression, i.e.: std::array size
 
-int f () { return 4; } // 
+int f () { return 4; } // not constexpr! despite it could be
 constexpr int f2 () { return 10; }
 
 constexpr int g (int x, int y) {
@@ -27,7 +27,7 @@ constexpr int g (int x, int y) {
 }
 
 // IV. in c++11, constexpr functions can only have one single-line expression.
-constexpr float getExp (float base) { return base*base; }
+constexpr float getSquare (float base) { return base*base; }
 
 // V. in c++14, constepxr functions can have as many lines of expressions as needed.
 // the restriction is that only literal types may be given as parameters. 
@@ -81,7 +81,7 @@ int main ()
     std::array <int, f2()> intarr2; // ok, size is determined during compile-time.
 
     // https://godbolt.org/z/F-7yu-
-    int p = g (2, 4); // ok, g is evalueated during compile-time
+    int p = g (2, 4); // ok, g is evaluated during compile-time
 
     int x, y;
     std::cin >> x; std::cin >> y;
