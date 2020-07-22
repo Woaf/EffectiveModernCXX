@@ -37,6 +37,7 @@ int main ()
 	A a3 (2, 4);		// param ctor
 	A a4 {};			// empty ctor
 	A a5 = {};			// empty ctor - same as without the '='
+	A a6 = {3, 4};			// param ctor
 
 	std::cout << std::endl;
 
@@ -52,6 +53,8 @@ int main ()
 
 	C c { true };		// init list ctor ! 
 	C c2 (true);		// param ctor
+	
+	// int x {5.4}; 	// error! no implicit conversion allowed!
 
 	return 0;
 }
