@@ -20,4 +20,4 @@ These pointers help in the different uses of raw pointers by encapsulating them,
 
 ### std::auto_ptr
 
-This type of pointer was an attempt to improve on the usage of raw pointers. However, the problem it tried to solve required _move semantics_, which was only introduced in C++11. Therefore, its usage is was highly inapplicable, and was later replaced by **std::unique_ptr**.
+This type of pointer was an attempt to improve on the usage of raw pointers. However, the problem it tried to solve required _move semantics_, which was only introduced in C++11. Therefore, its usage was highly inapplicable, and was later replaced by **std::unique_ptr**.
