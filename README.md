@@ -54,6 +54,10 @@ Special member function generation
 
 [gmf]: gmf.jpg
 
+### Item 18
+
+Smart pointers
+
 ***
 
 ## Up next
