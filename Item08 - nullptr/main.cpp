@@ -9,7 +9,7 @@ void f (void*) { std::cout << "f (void*)" << std::endl; }
 
 int iDefinitelyReturnAPointer (bool b) { 
     std::cout << "fake func" << std::endl; 
-    return b; 
+    return NULL; 
 }
 
 int* iDefinitelyReturnAPointer_r (bool b) { 
