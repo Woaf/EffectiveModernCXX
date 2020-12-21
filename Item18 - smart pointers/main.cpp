@@ -34,13 +34,13 @@ All custom deletion functions accept a rea pointer to the obejct to be destroyed
 The type of the custom deleter function must be specified inside the type arguments 
 of the std::unique_ptr.
 */
-auto delInvmt = [] (Investment* pInvestment) {
-    std::cout << "Custom destructor for the investment object is running..." << std::endl;
-    delete pInvestment;
-};
-
-std::unique_ptr<Investment, decltype (delInvmt)> makeInvmtWithCustomDestructor (const Selector& selector)
+auto makeInvmtWithCustomDestructor (const Selector& selector)
 {
+    auto delInvmt = [] (Investment* pInvestment) {
+        std::cout << "Custom destructor for the investment object is running..." << std::endl;
+        delete pInvestment; 
+    };
+
     std::unique_ptr<Investment, decltype (delInvmt)> pInv (nullptr, delInvmt);
 
     switch (toUnderlyingType (selector)) {
