@@ -6,6 +6,7 @@
 class Investment {
 public:
     Investment (int id, const std::string& name) : id (id), name (name) {}
+    virtual ~Investment () {}
 
     virtual void printName () const noexcept { std::cout << name << std::endl; }
 protected:

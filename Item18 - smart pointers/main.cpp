@@ -28,19 +28,25 @@ std::unique_ptr<Investment> makeInvestment (const Selector& selector)
 /*
 However, we may also feed custom deestructors to the std::unique_ptr, when it comes for the 
 object to be freed.
+
+All custom deletion functions accept a rea pointer to the obejct to be destroyed.
+
+The type of the custom deleter function must be specified inside the type arguments 
+of the std::unique_ptr.
 */
 auto delInvmt = [] (Investment* pInvestment) {
     std::cout << "Custom destructor for the investment object is running..." << std::endl;
     delete pInvestment;
 };
+
 std::unique_ptr<Investment, decltype (delInvmt)> makeInvmtWithCustomDestructor (const Selector& selector)
 {
     std::unique_ptr<Investment, decltype (delInvmt)> pInv (nullptr, delInvmt);
 
     switch (toUnderlyingType (selector)) {
-        case (toUnderlyingType (Selector::Stock)): pInv.reset (new Stock (1, "Stock")); break;
-        case (toUnderlyingType (Selector::Bond)):  pInv.reset (new Bond (2, "Bond")); break;
-        case (toUnderlyingType (Selector::RealEstate)): pInv.reset (new RealEstate (3, "RealEstate")); break;
+        case (toUnderlyingType (Selector::Stock)):      pInv.reset (new Stock (1, "Stock"));            break;
+        case (toUnderlyingType (Selector::Bond)):       pInv.reset (new Bond (2, "Bond"));              break;
+        case (toUnderlyingType (Selector::RealEstate)): pInv.reset (new RealEstate (3, "RealEstate"));  break;
         default: break;
     }
 
