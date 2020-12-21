@@ -1,34 +1,7 @@
-#include <iostream>
 #include <memory>
 #include <type_traits>
 
-class Investment {
-public:
-    Investment (int id, const std::string& name) : id (id), name (name) {}
-
-    virtual void printName () const noexcept { std::cout << name << std::endl; }
-protected:
-    int id;
-    std::string name;
-};
-
-class Stock : public Investment 
-{
-public:
-    Stock (int id, const std::string& name) : Investment (id, name) {}
-};
-
-class Bond : public Investment 
-{
-public:
-    Bond (int id, const std::string& name) : Investment (id, name) {}
-};
-
-class RealEstate : public Investment
-{
-public: 
-    RealEstate (int id, const std::string& name) : Investment (id, name) {}
-};
+#include "classes.hpp"
 
 enum class Selector {
     Stock, 
@@ -50,6 +23,28 @@ std::unique_ptr<Investment> makeInvestment (const Selector& selector)
         case (toUnderlyingType (Selector::RealEstate)): return std::make_unique<RealEstate> (3, "real estate"); break;
         default: return nullptr; break;
     }
+}
+
+/*
+However, we may also feed custom deestructors to the std::unique_ptr, when it comes for the 
+object to be freed.
+*/
+auto delInvmt = [] (Investment* pInvestment) {
+    std::cout << "Custom destructor for the investment object is running..." << std::endl;
+    delete pInvestment;
+};
+std::unique_ptr<Investment, decltype (delInvmt)> makeInvmtWithCustomDestructor (const Selector& selector)
+{
+    std::unique_ptr<Investment, decltype (delInvmt)> pInv (nullptr, delInvmt);
+
+    switch (toUnderlyingType (selector)) {
+        case (toUnderlyingType (Selector::Stock)): pInv.reset (new Stock (1, "Stock")); break;
+        case (toUnderlyingType (Selector::Bond)):  pInv.reset (new Bond (2, "Bond")); break;
+        case (toUnderlyingType (Selector::RealEstate)): pInv.reset (new RealEstate (3, "RealEstate")); break;
+        default: break;
+    }
+
+    return pInv;
 }
 
 static void UseInvestmentFactoryTest () 
@@ -77,9 +72,25 @@ static void UseInvestmentFactoryTest ()
     pRE->printName ();
 }
 
+void TestUniquePtrsWithCustomDestructor () 
+{
+    {
+        auto pStock = makeInvmtWithCustomDestructor (Selector::Stock);
+    } // custom destructor runs
+
+    {
+        auto pBond = makeInvmtWithCustomDestructor (Selector::Bond);
+    } // custom destructor runs
+
+    {
+        auto pRE = makeInvmtWithCustomDestructor (Selector::RealEstate);
+    } // custom destructor runs
+}
+
 int main () 
 {
     UseInvestmentFactoryTest ();
+    TestUniquePtrsWithCustomDestructor ();
 
     return 0;
 }
