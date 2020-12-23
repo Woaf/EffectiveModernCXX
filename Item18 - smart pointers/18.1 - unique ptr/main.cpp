@@ -196,7 +196,7 @@ int main ()
     TestUnqPtrsWtihCDesctructor2 ();
     TestUnqPtrsWtihCDesctructor3 ();
 
-    // Its very easy to 
+    // The unique_ptr can be converted to a shared pointer, which is a very useful feature
     std::shared_ptr<Investment> shPtr = makeInvWithCustomDeleter2 (Selector::Stock, 44, "shared stock");
 
     return 0;
