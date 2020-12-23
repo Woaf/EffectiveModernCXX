@@ -196,5 +196,8 @@ int main ()
     TestUnqPtrsWtihCDesctructor2 ();
     TestUnqPtrsWtihCDesctructor3 ();
 
+    // Its very easy to 
+    std::shared_ptr<Investment> shPtr = makeInvWithCustomDeleter2 (Selector::Stock, 44, "shared stock");
+
     return 0;
 }

@@ -1,3 +1,11 @@
 project (Unique_pointers)
 
-add_executable (Unique_pointers main.cpp)
+set (HEADERS
+	classes.hpp
+)
+
+set (SOURCES
+	main.cpp
+)
+
+add_executable (Unique_pointers ${HEADERS} ${SOURCES})
