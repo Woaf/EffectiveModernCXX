@@ -47,7 +47,7 @@ int main ()
 
 	{
 		std::vector<std::shared_ptr<GoodObject>> vector;
-		std::shared_ptr<GoodObject> goodPointer (GoodObject::create (), GODeleter);
+		std::shared_ptr<GoodObject> goodPointer (GoodObject::create ());
 		goodPointer->process (vector);
 	}
 
