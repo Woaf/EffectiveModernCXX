@@ -26,5 +26,21 @@ A problem can arouse when passing a single raw pointer for the construction of t
 
 However, we might want to use custom deleters, which is not possible with std::make_shared. To avoid this problem, we just have to **avoid the creation of a raw pointer variable, and pass the pointer to the shared pointer constructor in-place with the new keyword**. By doing so, we can pass the created shared pointer as the constructor argument of the second shared pointer, which avoids the problem at hand. 
 
+### The *this* pointer as std::shared_ptr constructor argument
 
-*More soon: std::enable_shared_from_this<T> (CRTP)*
+Using the *this* object pointer as an std::shared_ptr constructor argument can also lead to several control blocks.
+
+Suppose we store a number of objects insde an std::vector as shared pointers.
+
+```std::vector<std::shared_ptr<Object>> processedObjects```
+
+Now lets also assume that Object keeps track of the created instances by modifying the `processedObjects` vector.
+
+```processedObjects.emplaceBack (this)```
+
+By placing a raw pointer to emplaceBack, a new control block will be constructed for the pointed object. This will ultimately cause the previously described problem of trying to free the object several times, when the destructor should run.
+
+To avoid this pitfall, the Object class should inherit from `std::enable_shared_from_this<T>`. Here, T should be a **Curiously Recurring Template Pattern**. Then, the appropriate function may receive `shared_from_this () ` as parameter. This will look up the control block of the associated object, and creates a new std::shared_ptr that refers to that control block. This implies that there *should be* and already existing control block associated with the object, a shared_ptr that points to the current object. **If no such shared_ptr exists, then `shared_from_this` will throw an exception**.
+
+In order to avoid client code to call `shared_from_this` before the object would have an appropriate shared_ptr (with a valid control block) a factory pattern is often used.
+

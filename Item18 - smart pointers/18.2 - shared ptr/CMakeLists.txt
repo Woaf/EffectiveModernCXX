@@ -8,6 +8,7 @@ set (HEADERS
 
 set (SOURCES
     main.cpp
+    classes.cpp
 )
 
 add_executable (Shared_ptrs ${HEADERS} ${SOURCES})
