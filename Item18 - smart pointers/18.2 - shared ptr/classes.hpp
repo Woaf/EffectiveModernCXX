@@ -47,6 +47,8 @@ public:
 
     void process (std::vector<std::shared_ptr<GoodObject>>& vector);
 
+    virtual ~GoodObject ();
+
 private:
     // private constructors prevent others to create raw pointers.
     // ensures that process gets a valid shared pointer
@@ -61,7 +63,7 @@ private:
 
 
 auto GODeleter = [] (GoodObject* go) {
-    std::cout << "Deleting good object..." << std::endl;
+    std::cout << "Running custom deleter on std::shared_ptr<GoodObject>" << std::endl;
     delete go;
 };
 

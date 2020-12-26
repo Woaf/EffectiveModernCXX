@@ -8,7 +8,7 @@ auto docDeleter = [] (Document* doc) {
 
 
 auto BODeleter = [] (BadObject* bo) {
-	std::cout << "Deleting bad object..." << std::endl;
+	std::cout << "Running custom deleter on std::shared_ptr<BadObject>" << std::endl;
 	delete bo;
 };
 

@@ -22,7 +22,7 @@ unsigned int Document::GetYear () const noexcept
 
 Document::~Document ()
 {
-	std::cout << "Destructor of document is running..." << std::endl;
+	std::cout << "Running destructor of Document..." << std::endl;
 	name = std::string ();
 	year = 0;
 }
@@ -71,5 +71,12 @@ std::shared_ptr<GoodObject> GoodObject::create ()
 void GoodObject::process (std::vector<std::shared_ptr<GoodObject>>& vector)
 {
 	vector.emplace_back (shared_from_this ());
+}
+
+GoodObject::~GoodObject ()
+{
+	std::cout << "Running destructor of GoodObject..." << std::endl;
+	name = std::string ();
+	id = 0;
 }
 
