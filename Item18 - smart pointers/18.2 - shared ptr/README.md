@@ -1,4 +1,4 @@
-## Shared pointers
+# Shared pointers
 
 "An object accessed via an std::shared_ptr has its lifetime managed by those pointers through shared ownership." Destruction of the object happens only when the object is no longer needed. 
 
@@ -26,7 +26,7 @@ A problem can arouse when passing a single raw pointer for the construction of t
 
 However, we might want to use custom deleters, which is not possible with std::make_shared. To avoid this problem, we just have to **avoid the creation of a raw pointer variable, and pass the pointer to the shared pointer constructor in-place with the new keyword**. By doing so, we can pass the created shared pointer as the constructor argument of the second shared pointer, which avoids the problem at hand. 
 
-### The *this* pointer as std::shared_ptr constructor argument
+## The *this* pointer as std::shared_ptr constructor argument
 
 Using the *this* object pointer as an std::shared_ptr constructor argument can also lead to several control blocks.
 
@@ -44,3 +44,6 @@ To avoid this pitfall, the Object class should inherit from `std::enable_shared_
 
 In order to avoid client code to call `shared_from_this` before the object would have an appropriate shared_ptr (with a valid control block) a factory pattern is often used.
 
+## Only use std::shared_ptr to point to a single object
+
+Just like std::unique_ptr, std::shared_ptr was designed to point to a single object, and not an array of objects. It is possible to create an std::shared_ptr that points to an array, and write a custom deleter function which performs an array deletion. However, this is not recommended as there is not `operator[]` defined for shared pointers (implying that indexing in such arrays is a nightmare before and after Christmas). Furthermore, std::shared_ptr supports *derived-to-base-class* conversion (upcasting) that makes sense for single objects, but not so much for arrays.
