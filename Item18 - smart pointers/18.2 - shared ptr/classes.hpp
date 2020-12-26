@@ -60,10 +60,11 @@ private:
 };
 
 
-inline std::shared_ptr<GoodObject> GoodObject::create (/*perfect forward params if needed*/)
-{
-    return std::shared_ptr<GoodObject> (new GoodObject ());
-}
+auto GODeleter = [] (GoodObject* go) {
+    std::cout << "Deleting good object..." << std::endl;
+    delete go;
+};
+
 
 
 #endif // CLASSES_H

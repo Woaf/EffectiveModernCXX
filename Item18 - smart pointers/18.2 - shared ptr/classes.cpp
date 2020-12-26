@@ -63,6 +63,11 @@ GoodObject::GoodObject () :
 {
 }
 
+std::shared_ptr<GoodObject> GoodObject::create ()
+{
+	return std::shared_ptr<GoodObject> (new GoodObject (), GODeleter);
+}
+
 void GoodObject::process (std::vector<std::shared_ptr<GoodObject>>& vector)
 {
 	vector.emplace_back (shared_from_this ());

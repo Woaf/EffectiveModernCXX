@@ -13,12 +13,6 @@ auto BODeleter = [] (BadObject* bo) {
 };
 
 
-auto GODeleter = [] (GoodObject* go) {
-	std::cout << "Deleting good object..." << std::endl;
-	delete go;
-};
-
-
 int main ()
 {
 	/*
@@ -28,7 +22,7 @@ int main ()
 		std::shared_ptr<Document> sharedP1 (pDoc, docDeleter);
 		std::shared_ptr<Document> sharedP2 (pDoc, docDeleter);
 	} // undefined behavior when the second custom deleter runs
-	  // in my case, the deleter threw an exception
+	  // in my case, the deleter threw an exception (MSVC v142)
 	*/
 
 	// this would be a bit better
