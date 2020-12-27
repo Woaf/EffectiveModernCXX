@@ -10,6 +10,11 @@ Document* Document::createDocumentWithYear (const std::string& path, unsigned in
 	return new Document (path, year);
 }
 
+std::unique_ptr<Document, decltype (docDeleter)> Document::createUPtr (const std::string& name) 
+{
+	return std::unique_ptr<Document, decltype (docDeleter)> (new Document (name, 0), docDeleter);
+}
+
 std::string Document::GetName () const noexcept
 {
 	return name;

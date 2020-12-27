@@ -45,6 +45,20 @@ int main ()
 		goodPointer->process (vector);
 	}
 
+	{
+		std::unique_ptr<Document, decltype (docDeleter)> pDocument = Document::createUPtr ("File.pdf");
+		std::cout << *pDocument << std::endl;
+		/*
+			When converting a uniquePtr to a sharedPtr as such, std::move *must* be used!
+		*/
+		std::shared_ptr<Document> shpDocument = std::move (pDocument);
+		if (pDocument != nullptr) {
+			std::cout << *pDocument << std::endl;
+		}
+
+		std::cout << *shpDocument << std::endl;
+	}
+
 
 	return 0;
 }

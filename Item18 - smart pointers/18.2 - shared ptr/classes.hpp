@@ -6,11 +6,17 @@
 #include <memory>
 #include <vector>
 
+auto docDeleter = [] (Document* doc) {
+	std::cout << "Deleting document..." << std::endl;
+	delete doc;
+};
+
 class Document 
 {
 public: 
     static Document* createDocument (const std::string& filename);
     static Document* createDocumentWithYear (const std::string& path, unsigned int year);
+    static std::unique_ptr<Document, decltype (docDeleter)> createUPtr (const std::string& name);
 
     std::string GetName () const noexcept;
     unsigned int GetYear () const noexcept;
