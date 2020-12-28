@@ -1,3 +1,7 @@
+### *Info:*
+
+*This directory includes Item 18 through Item 20.*
+
 ## **Arguments agains raw pointers**
 
 1) A raw pointer declaration does not indicate whether the pointed element is a single object or an array of objects.

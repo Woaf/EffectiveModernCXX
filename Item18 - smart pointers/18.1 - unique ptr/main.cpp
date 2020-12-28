@@ -189,6 +189,11 @@ void TestUnqPtrsWtihCDesctructor3 ()
     }
 }
 
+void TestDocument () {
+    Document d ("book.pdf");
+    std::cout << d << std::endl;
+}
+
 int main () 
 {
     UseInvestmentFactoryTest ();
@@ -196,8 +201,12 @@ int main ()
     TestUnqPtrsWtihCDesctructor2 ();
     TestUnqPtrsWtihCDesctructor3 ();
 
-    // The unique_ptr can be converted to a shared pointer, which is a very useful feature
-    std::shared_ptr<Investment> shPtr = makeInvWithCustomDeleter2 (Selector::Stock, 44, "shared stock");
+    {
+        // The unique_ptr can be converted to a shared pointer, which is a very useful feature
+        std::shared_ptr<Investment> shPtr = makeInvWithCustomDeleter2 (Selector::Stock, 44, "shared stock");
+    }
+
+    TestDocument ();
 
     return 0;
 }

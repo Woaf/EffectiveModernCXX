@@ -32,4 +32,19 @@ public:
     RealEstate (int id, const std::string& name) : Investment (id, name) {}
 };
 
+
+// DOCUMENT
+class Document
+{
+public: 
+    Document (const std::string& name);
+
+    std::string GetName () const noexcept;
+private:
+    std::unique_ptr<std::string> name;
+};
+
+std::ostream& operator<< (std::ostream& out, const Document& doc);
+
+
 #endif
