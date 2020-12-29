@@ -3,7 +3,6 @@
 int main () 
 {
 	Class c;
-	
 
 	return 0;
 }
