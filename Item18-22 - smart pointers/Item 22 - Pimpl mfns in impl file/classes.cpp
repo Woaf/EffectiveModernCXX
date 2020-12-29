@@ -15,5 +15,20 @@ Class::Class () :
 {
 }
 
+Class::Class (const Class& other) : 
+	impl (std::make_unique<ClassImpl> (*other.impl))
+{
+}
+
 Class::~Class () = default;
+
+Class::Class (Class&& other) = default;
+
+Class& Class::operator=(const Class & other)
+{
+	*impl = *other.impl;
+	return *this;
+}
+
+Class& Class::operator=(Class&& other) = default;
 
