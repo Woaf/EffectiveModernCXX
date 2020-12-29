@@ -6,4 +6,4 @@ A class can have a pointer to an *incomplete type*, aka a pre-declared class / s
 
 In `commit#:b233287a14949d58bd2b76061a90b4737ab87fe3` we can see that Class includes person.h. This should not be the case, since none of the Person objects are dereferenced or called with its member functions. Therefore, it can be declared as a pointer inside the class declaration. Furthermore, this can be generalized to all data members of the Class data members. We can declare an implementation structure that will contain all of the data members of Class.
 
-
+We can see an example of implementing the pimpl idiom using a raw pointer in `commi#:a6c0d797e5aa1502d8c77c6a09d617d90bb0ceb6`. However, based on what we did in the previous chapters, we should avoid using raw poitners, and use smart pointers to implement the Pimpl idiom.
