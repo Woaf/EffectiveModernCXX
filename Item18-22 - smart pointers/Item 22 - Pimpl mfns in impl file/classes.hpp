@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-
+#include <memory>
 
 class Class {
 public:
@@ -12,7 +12,7 @@ public:
 
 private:
 	struct ClassImpl;
-	ClassImpl* impl;
+	std::unique_ptr<ClassImpl> impl;
 };
 
 

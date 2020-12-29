@@ -11,11 +11,9 @@ struct Class::ClassImpl {
 };
 
 Class::Class () : 
-	impl (new ClassImpl)
+	impl (std::make_unique<ClassImpl> ())
 {
 }
 
-Class::~Class ()
-{
-	delete impl;
-}
+Class::~Class () = default;
+
