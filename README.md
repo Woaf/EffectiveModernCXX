@@ -54,9 +54,9 @@ Special member function generation
 
 [gmf]: gmf.jpg
 
-### Item 18
+### Item 18 - Item 22
 
-Smart pointers
+Smart pointers (`std::unique_ptr`, `std::shared_ptr`, `std::weak_ptr`), implement PIMPL using smart pointers
 
 ***
 
