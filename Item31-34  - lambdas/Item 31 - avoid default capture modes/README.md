@@ -16,7 +16,7 @@ There are cases when the previously described problem won't exist - such as imme
 
 **Simply put, its just better practice to explicitly declare captured variables in lambda expressions.**
 
-## Capture by value `[=] () {}`
+## Capture by value `[=] () {}` and `[<value>] () {}`
 
 Capturing local variables (or whatever, that is inside the scope of the lambda expresion) mean that these variables will be copied into new local variables inside the body of the lambda's closure - exactly like a function taking a *non-reference* parameter.
 
