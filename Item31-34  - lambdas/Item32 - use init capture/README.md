@@ -30,7 +30,7 @@ If a local variable is defined just so it can be passed to a lambda, then it is 
 
 Since C++11 does not support init captures, we have to use other ways to achieve this.
 
-Lmabda expressions are in fact just *syntactical candies* for **functors**. In C++, *functors are just classes with an overloaded `operator ()` (function call operator)*. (The real definition of a functor can be found in category theory and is mainly used in functional programming - they are operations on an object.)
+Lmabda expressions are in fact just *syntactical candies* for **functors**. In C++, *functors are just classes with an overloaded `operator ()` (function call operator)*. (The real definition of functors can be found in the field of category theory and as a programming term it is mainly used in functional programming - they are operations on an object.)
 
 As a consequence, we can create our own *init capture* in C++11 with functor classes.
 
