@@ -49,4 +49,4 @@ auto func11 = std::bind ([] (const std::vector<double>& data) {
 }, std::move (data));
 ```
 
-`std::bind` produces function objects (or "bind objects" by Scott Meyers). The first argument of `std::bind` is a functor (callable object). Further arguments are parameters that will be passed to that function object. The obejct returnd by `std::bind` **contain copies of the values that are passed into it**. Lvalue arguments are copy constructed inside the bind object, while rvalue arguments are move constructed.
+`std::bind` produces function objects (or "bind objects" by Scott Meyers). The first argument of `std::bind` is a functor (callable object). Further arguments are parameters that will be passed to that function object. The object returnd by `std::bind` **contain copies of the values that are passed into it**. Lvalue arguments are copy constructed inside the bind object, while rvalue arguments are move constructed.
