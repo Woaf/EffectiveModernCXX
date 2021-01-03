@@ -57,7 +57,7 @@ Things are getting pretty ugly, just to force `std::bind` to work.
 
 When we are using lambdas, the function invocation of `SetAlarm` inside the lambda closure is a simple function call, which may very well be inlined by the compiler. This is *not* the case when we use `std::bind`, since the function is called through a function pointer. **Compilers may generate faster code with lambdas than using`std::bind`.**
 
-More examples of how lambdas can be much more comfortable: 
+More examples of how lambdas can be much more comfortable:
 
 ``` c++
 // using lambda
@@ -81,8 +81,8 @@ In C++11, however, std::bind can be justified in two constrained situations:
 
 2) Polymorphic functors
 
-## Polymorphic functors 
+## Polymorphic functors
 
 Since calling the `operator ()` of a bind object uses `std::forward`, it can accept arguments of any type.
 
-## As a final note **"lambda support to C++11 rendered std::bindall but obsolete, however, and as of C++14, there are just no good use cases for it."**
+## As a final note **"lambda support to C++11 rendered std::bind all but obsolete, however, and as of C++14, there are just no good use cases for it."**
