@@ -2,6 +2,7 @@
 #define CLASSES_H
 
 #include <iostream>
+#include <memory>
 
 
 class Widget {
@@ -21,6 +22,18 @@ private:
 
 
 std::ostream& operator<< (std::ostream& out, const Widget& w);
+
+
+class IsValidAndArchived {
+public: 
+    using DataType = std::unique_ptr<Widget>;
+
+    explicit IsValidAndArchived (DataType&& ptr);
+    
+    bool operator () () const;
+private: 
+    DataType pw;
+};
 
 
 #endif // CLASSES_H
