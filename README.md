@@ -58,6 +58,10 @@ Special member function generation
 
 Smart pointers (`std::unique_ptr`, `std::shared_ptr`, `std::weak_ptr`), implement PIMPL using smart pointers
 
+### Item 31 - Item 34
+
+This chapter explains how lambdas should be used, especially in C++14, and why `std::bind` should be avoided (after C++11).
+
 ***
 
 ## Up next
