@@ -8,12 +8,12 @@ Weak pointers are created from shared pointers. They point to the same object, b
 
 We may check if the weak pointer points to a non-deleted object with its `.expired ()` method. It would be most desireable to try to access the pointed object knowing whether it still points to a valid object in the memory. However, *if it would be possible*, dereferencing the object via its weak pointer might cause a race condition. A process from another thread might delete the pointed object while we try to dereference it through its weak pointer. This would lead to *undefined behavior*, but most probably a crash.
 
-For that to be avoided, C++ introduces an *atomic operation* called `lock ()`, which creates a shared pointer if the weak pointer is not yet expired. `nullptr` is returned if the weak pointer was expired. There are two ways of acquiring a shared pointer from a weak pointer. 
+For that to be avoided, C++ introduces an *atomic operation* called `lock ()`, which creates a shared pointer if the weak pointer is not yet expired. `nullptr` is returned if the weak pointer was expired. There are two ways of acquiring a shared pointer from a weak pointer.
 
 - One way of doing it is to use the `lock ()` method
 - Another way is to pass the weak poiner as constructor argument of the shared pointer. In this case, if the shared pointer was expired, then an `std::bad_weak_ptr` exception is thrown.
 
-### Summary
+## Summary
 
 Use std::weak_ptr for pointers that can dangle, but should act like std::shared_ptr
 
