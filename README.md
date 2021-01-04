@@ -8,7 +8,7 @@ The notes written for each subsections are a lot less elaborate than what is wri
 
 ## Chapters
 
-### **Item 7 - 17**
+### **Item 7 - Item 17**
 
 This chapter contains technologies that were introduced by C++11 and C++14.
 
