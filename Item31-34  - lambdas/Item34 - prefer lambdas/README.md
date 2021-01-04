@@ -47,7 +47,7 @@ auto setSoundL = [] (Sound s) {
 // type parameter may be ommitted from std::plus in this case
 using namespace std::placeholders;
 using SetAlarm3ParamType = void (*) (Time t, Sound s, Duration d);
-auto SetSoundB = std::bind (static_case<SetAlarm3ParamType> (SetAlarm)), 
+auto SetSoundB = std::bind (static_cast<SetAlarm3ParamType> (SetAlarm)), 
                             std::bind (std::plus<steady_clock::time_point> (), steady_clock::now (), 1h),
                             _1, 
                             30s);
