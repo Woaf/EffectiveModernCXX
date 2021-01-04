@@ -4,61 +4,19 @@
 
 This repo consists of illustrative code for the techniques introduced in the C++11 / C++14 standard explained in the book.
 
+The notes written for each subsections are a lot less elaborate than what is written in the book. ***You should buy the book for greater details.***
+
 ## Chapters
 
-### Item7
+### **Item 7 - 17**
 
-Distinguish between () and {} when creating objects.
+This chapter contains technologies that were introduced by C++11 and C++14.
 
-### Item8
-
-Prefer `nullptr` to `0` and `NULL`.
-
-### Item9
-
-Prefer alias declarations to typedefs.
-
-### Item10
-
-Prefer scoped enums to unscoped enums.
-
-### Item11
-
-Prefer deleted functions to private undefined ones.
-
-### Item12
-
-Declare overriding functions override.
-
-### Item 13
-
-Prefer `const_iterator` to `iterator`.
-
-### Item 14
-
-Declare functions `noexcept` if they won’t emit exceptions.
-
-### Item 15
-
-Use `constexpr` whenever possible.
-
-### Item 16
-
-Make const member functions thread safe.
-
-### Item 17
-
-Special member function generation
-
-![Generated member functions][gmf]
-
-[gmf]: gmf.jpg
-
-### Item 18 - Item 22
+### **Item 18 - Item 22**
 
 Smart pointers (`std::unique_ptr`, `std::shared_ptr`, `std::weak_ptr`), implement PIMPL using smart pointers
 
-### Item 31 - Item 34
+### **Item 31 - Item 34**
 
 This chapter explains how lambdas should be used, especially in C++14, and why `std::bind` should be avoided (after C++11).
 
