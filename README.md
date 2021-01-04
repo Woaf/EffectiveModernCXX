@@ -4,7 +4,7 @@
 
 This repo consists of illustrative code for the techniques introduced in the C++11 / C++14 standard explained in the book.
 
-The notes written for each subsections are a lot less elaborate than what is written in the book. ***You should buy the book for greater details.***
+The notes written for each subsections are a lot less elaborate than what is written in the book. ***You should buy the book for greater details, and because its a good read for C++ developers.***
 
 ## Chapters
 
