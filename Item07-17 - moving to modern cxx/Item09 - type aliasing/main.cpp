@@ -19,7 +19,7 @@ using MyAllocList = std::list<T, MyAlloc<T>>; // its that easy!
 template <typename T>
 struct TemplateStruct
 {
-	typedef std::list<T, MyAlloc<T>> type;
+    typedef std::list<T, MyAlloc<T>> type;
 };
 // which the client would use as: 
 // TemplateStruct<int>::type ls;
@@ -27,7 +27,7 @@ struct TemplateStruct
 template <typename T>
 struct MyNewVector
 {
-	typedef std::vector<T> MyNewTypedef;
+    typedef std::vector<T> MyNewTypedef;
 };
 
 
@@ -35,15 +35,15 @@ struct MyNewVector
 template <typename T>
 struct ASDF 
 {
-	typedef int type;
+    typedef int type;
 };
 
 template <typename T>
 struct MyNewType
 {
-	typename ASDF<T>::type a; // writing "typename" is necessary, due to dependent type 
-							  // the compiler would not be able to distingish ::type  
-							  // between a type or a member
+    typename ASDF<T>::type a; // writing "typename" is necessary, due to dependent type 
+                              // the compiler would not be able to distingish ::type  
+                              // between a type or a member
 };
 // --- dependent types
 
@@ -54,18 +54,18 @@ using NewVectorName = std::vector<T>;
 template <typename T>
 struct AnotherStruct
 {
-	NewVectorName<T> vec; // "typename" is not needed, because "NewVectorName" clearly identifies 
-						  // a type
+    NewVectorName<T> vec; // "typename" is not needed, because "NewVectorName" clearly identifies 
+                          // a type
 };
 //
 
 int main ()
 {
-	IntVector_u intPairs { {3, 4}, {5,8}, {11, 75} };
+    IntVector_u intPairs { {3, 4}, {5,8}, {11, 75} };
 
-	for (auto& i : intPairs) {
-		std::cout << i.first << ", " << i.second << std::endl;
-	}
+    for (const auto& i : intPairs) {
+        std::cout << i.first << ", " << i.second << std::endl;
+    }
 
-	return 0;
+    return 0;
 }

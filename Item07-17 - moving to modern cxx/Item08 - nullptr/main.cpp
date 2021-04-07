@@ -9,7 +9,10 @@ void f (void*) { std::cout << "f (void*)" << std::endl; }
 
 int iDefinitelyReturnAPointer (bool b) { 
     std::cout << "fake func" << std::endl; 
-    return NULL; 
+    return NULL; // warning: implicit conversion of NULL constant to 'int'
+                 // we can explicitly cast NULL to an integer with (int)NULL to remove the warning
+                 // avoid to return NULL, if the function has no return value use void as return type
+                 // if you want to make sure to return a pointer use nullptr instead of NULL
 }
 
 int* iDefinitelyReturnAPointer_r (bool b) { 
@@ -33,8 +36,8 @@ int main ()
 
     auto x = iDefinitelyReturnAPointer (false);
     if (x == 0) {
-        //... ambiguous comparison of x. is x really a pointer???
-        // this isn't very safe...
+        // non-ambiguous comparison of x. x will be int, because of the implicit cast
+        // to print out the type of x use the following expression std::cout << typeid(x).name();
     }
 
     auto y = iDefinitelyReturnAPointer_r (true);
